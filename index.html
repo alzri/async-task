@@ -18,14 +18,33 @@
 <body>
     <h1>Simulate Data Fetch on Button Click (Callbacks, Promises, Async-Await)</h1>
 
-    <button id="fetchCallback">Fetch Data (Callback)</button>
-    <button id="fetchPromise">Fetch Data (Promise)</button>
-    <button id="fetchAsyncAwait">Fetch Data (Async-Await)</button>
+    <button id="fetchCallback" onclick="buttonCallBack()">Fetch Data (Callback)</button>
+    <button id="fetchPromise" onclick="buttonPromise()">Fetch Data (Promise)</button>
+    <button id="fetchAsyncAwait" onclick="buttonAsync()">Fetch Data (Async-Await)</button>
   
     <div id="dataMessage"></div>
 
   <script>
-    // JavaScript solution should be implemented here for all three methods:
+    function buttonCallBack() {
+      setTimeout(() => {
+        document.getElementById("dataMessage").innerHTML = "Data fetched successfully (callback)!";
+      }, 3000);
+    };
+
+    function buttonPromise() {
+      const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(document.getElementById("dataMessage").innerHTML = "Data fetched successfully (promise)!");
+        }, 3000);
+      })
+    };
+
+    async function buttonAsync() {
+      await  setTimeout(() => {
+        document.getElementById("dataMessage").innerHTML = "Data fetched successfully (async/await)!";
+      }, 3000);
+    }
+
   </script>
 </body>
 </html>
